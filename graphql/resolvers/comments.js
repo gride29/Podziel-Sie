@@ -7,9 +7,9 @@ module.exports = {
 		createComment: async (_, { postId, body }, context) => {
 			const { username } = checkAuth(context);
 			if (body.trim() === "") {
-				throw new UserInputError("Empty comment.", {
+				throw new UserInputError("Pusty komentarz", {
 					errors: {
-						body: "Comment body must not be empty.",
+						body: "Komentarz nie może być pusty",
 					},
 				});
 			}
@@ -25,7 +25,7 @@ module.exports = {
 				});
 				await post.save();
 				return post;
-			} else throw new UserInputError("Post not found");
+			} else throw new UserInputError("Nie znaleziono wpisu");
 		},
 
 		async deleteComment(_, { postId, commentId }, context) {
@@ -42,10 +42,10 @@ module.exports = {
 					await post.save();
 					return post;
 				} else {
-					throw new AuthenticationError("Action not allowed.");
+					throw new AuthenticationError("Akcja niedozwolona");
 				}
 			} else {
-				throw new UserInputError("Post not found.");
+				throw new UserInputError("Nie znaleziono wpisu");
 			}
 		},
 	},

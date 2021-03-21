@@ -19,7 +19,7 @@ module.exports = {
 				if (post) {
 					return post;
 				} else {
-					throw new Error("Post not found.");
+					throw new Error("Nie znaleziono wpisu");
 				}
 			} catch (err) {
 				throw new Error(err);
@@ -31,7 +31,7 @@ module.exports = {
 			const user = checkAuth(context);
 
 			if (args.body.trim() === "") {
-				throw new Error("Post body must not be empty.");
+				throw new Error("Wpis nie może być pusty");
 			}
 
 			const newPost = new Post({
@@ -57,9 +57,9 @@ module.exports = {
 				const post = await Post.findById(postId);
 				if (user.username === post.username) {
 					await post.delete();
-					return "Post has been deleted.";
+					return "Wpis został usunięty";
 				} else {
-					throw new AuthenticationError("Action not allowed.");
+					throw new AuthenticationError("Akcja niedozwolona");
 				}
 			} catch (err) {
 				throw new Error(err);
@@ -83,7 +83,7 @@ module.exports = {
 				}
 				await post.save();
 				return post;
-			} else throw new UserInputError("Post not found.");
+			} else throw new UserInputError("Post not found");
 		},
 	},
 	Subscription: {

@@ -1,0 +1,25 @@
+.page-title {
+	display: block !important;
+	text-align: center;
+	font-size: 2rem;
+	margin-top: 10;
+}
+
+.register-title {
+	display: block !important;
+	text-align: center;
+	font-size: 2rem;
+	margin-top: 10;
+}
+
+.form-container {
+	width: 400px;
+	margin: auto;
+}
+
+.login-title {
+	display: block !important;
+	text-align: center;
+	font-size: 2rem;
+	margin-top: 10;
+}

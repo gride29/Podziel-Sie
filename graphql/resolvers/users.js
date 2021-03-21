@@ -27,20 +27,22 @@ module.exports = {
 			const { errors, valid } = validateLoginInput(username, password);
 
 			if (!valid) {
-				throw new UserInputError("Errors", { errors });
+				throw new UserInputError("Błędy", { errors });
 			}
 
 			const user = await User.findOne({ username });
 
 			if (!user) {
-				errors.general = "User not found.";
-				throw new UserInputError("User not found.", { errors });
+				errors.general = "Nie znaleziono użytkownika";
+				throw new UserInputError("Nie znaleziono użytkownika", { errors });
 			}
 
 			const match = await bcrypt.compare(password, user.password);
 			if (!match) {
-				errors.general = "Wrong credentials.";
-				throw new UserInputError("Wrong credentials.", { errors });
+				errors.general = "Nieprawidłowa nazwa użytkownika lub hasło";
+				throw new UserInputError("Nieprawidłowa nazwa użytkownika lub hasło", {
+					errors,
+				});
 			}
 
 			const token = generateToken(user);
@@ -66,13 +68,13 @@ module.exports = {
 				confirmPassword
 			);
 			if (!valid) {
-				throw new UserInputError("Errors", { errors });
+				throw new UserInputError("Błędy", { errors });
 			}
 			const user = await User.findOne({ username });
 			if (user) {
-				throw new UserInputError("This username has already been taken.", {
+				throw new UserInputError("Ta nazwa użytkownika jest już zajęta", {
 					errors: {
-						username: "This username has already been taken.",
+						username: "Ta nazwa użytkownika jest już zajęta",
 					},
 				});
 			}
