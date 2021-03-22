@@ -7,7 +7,10 @@ function AuthRoute({ component: Component, ...rest }) {
 
 	return (
 		<Route
+			// Spread whatever Route is wrapped by.
 			{...rest}
+			// If user was successfully authenticated redirect to /, when user goes /login OR /register.
+			// If user wasn't successfully authenticated just render the component in properties.
 			render={(props) =>
 				user ? <Redirect to="/" /> : <Component {...props} />
 			}
