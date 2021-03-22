@@ -38,10 +38,10 @@ function PostCard({
 					</Label>
 				</Button>
 				<Button as="div" labelPosition="right" onClick={commentOnPost}>
-					<Button color="teal" basic>
+					<Button color="blue" basic>
 						<Icon name="comment" />
 					</Button>
-					<Label as="a" basic color="teal" pointing="left">
+					<Label as="a" basic color="blue" pointing="left">
 						{likeCount}
 					</Label>
 				</Button>
