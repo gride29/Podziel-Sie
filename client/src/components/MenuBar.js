@@ -18,7 +18,7 @@ function MenuBar() {
 			<Menu.Item name={user.username} active as={Link} to="/" />
 
 			<Menu.Menu position="right">
-				<Menu.Item name="logout" onClick={logout} />
+				<Menu.Item name="logout" content="Wyloguj" onClick={logout} />
 			</Menu.Menu>
 		</Menu>
 	) : (

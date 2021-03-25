@@ -1,24 +1,24 @@
-import { useMutation } from "@apollo/client";
-import gql from "graphql-tag";
-import React, { useState, useContext } from "react";
-import { Form, Button } from "semantic-ui-react";
-import { useForm } from "../util/hooks";
-import { AuthContext } from "../context/auth";
+import { useMutation } from '@apollo/client';
+import gql from 'graphql-tag';
+import React, { useState, useContext } from 'react';
+import { Form, Button } from 'semantic-ui-react';
+import { useForm } from '../util/hooks';
+import { AuthContext } from '../context/auth';
 
 function Register(props) {
 	const context = useContext(AuthContext);
 	const [errors, setErrors] = useState({});
 
 	const { onChange, onSubmit, values } = useForm(registerUser, {
-		username: "",
-		email: "",
-		password: "",
-		confirmPassword: "",
+		username: '',
+		email: '',
+		password: '',
+		confirmPassword: '',
 	});
 
 	const [addUser, { loading }] = useMutation(REGISTER_USER, {
 		update(_, { data: { register: userData } }) {
-			props.history.push("/");
+			props.history.push('/');
 			context.login(userData);
 		},
 		onError(err) {
@@ -33,7 +33,7 @@ function Register(props) {
 
 	return (
 		<div className="form-container">
-			<Form onSubmit={onSubmit} noValidate className={loading ? "loading" : ""}>
+			<Form onSubmit={onSubmit} noValidate className={loading ? 'loading' : ''}>
 				<h1 className="register-title">Rejestracja</h1>
 				<Form.Input
 					label="Nazwa użytkownika"

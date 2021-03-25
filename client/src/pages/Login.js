@@ -1,24 +1,24 @@
-import { useMutation } from "@apollo/client";
-import gql from "graphql-tag";
-import React, { useState, useContext } from "react";
-import { Form, Button } from "semantic-ui-react";
-import { useForm } from "../util/hooks";
-import { AuthContext } from "../context/auth";
+import { useMutation } from '@apollo/client';
+import gql from 'graphql-tag';
+import React, { useState, useContext } from 'react';
+import { Form, Button } from 'semantic-ui-react';
+import { useForm } from '../util/hooks';
+import { AuthContext } from '../context/auth';
 
 function Login(props) {
 	const context = useContext(AuthContext);
 	const [errors, setErrors] = useState({});
 
 	const { onChange, onSubmit, values } = useForm(loginUserCallback, {
-		username: "",
-		email: "",
-		password: "",
-		confirmPassword: "",
+		username: '',
+		email: '',
+		password: '',
+		confirmPassword: '',
 	});
 
 	const [loginUser, { loading }] = useMutation(LOGIN_USER, {
 		update(_, { data: { login: userData } }) {
-			props.history.push("/");
+			props.history.push('/');
 			context.login(userData);
 		},
 		onError(err) {
@@ -33,7 +33,7 @@ function Login(props) {
 
 	return (
 		<div className="form-container">
-			<Form onSubmit={onSubmit} noValidate className={loading ? "loading" : ""}>
+			<Form onSubmit={onSubmit} noValidate className={loading ? 'loading' : ''}>
 				<h1 className="login-title">Logowanie</h1>
 				<Form.Input
 					label="Nazwa użytkownika"
