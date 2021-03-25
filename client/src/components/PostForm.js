@@ -1,13 +1,13 @@
-import React from "react";
-import { Button, Form } from "semantic-ui-react";
-import { useForm } from "../util/hooks";
-import gql from "graphql-tag";
-import { useMutation } from "@apollo/client";
-import { FETCH_POSTS_QUERY } from "../util/graphql";
+import React from 'react';
+import { Button, Form } from 'semantic-ui-react';
+import { useForm } from '../util/hooks';
+import gql from 'graphql-tag';
+import { useMutation } from '@apollo/client';
+import { FETCH_POSTS_QUERY } from '../util/graphql';
 
 function PostForm() {
 	const { values, onChange, onSubmit } = useForm(createPostCallback, {
-		body: "",
+		body: '',
 	});
 
 	const [createPost, { error }] = useMutation(CREATE_POST_MUTATION, {
@@ -22,7 +22,7 @@ function PostForm() {
 					getPosts: [result.data.createPost, ...data.getPosts],
 				},
 			});
-			values.body = "";
+			values.body = '';
 		},
 		onError(err) {
 			return err;
@@ -36,8 +36,8 @@ function PostForm() {
 	return (
 		<>
 			<Form onSubmit={onSubmit}>
-				<h2 style={{ textAlign: "center" }}>Utwórz wpis</h2>
-				<Form.Field style={{ textAlign: "right" }}>
+				<h2 style={{ textAlign: 'left' }}>&nbsp;Utwórz wpis</h2>
+				<Form.Field style={{ textAlign: 'right' }}>
 					<Form.Input
 						placeholder="Twój wpis..."
 						name="body"
@@ -45,7 +45,7 @@ function PostForm() {
 						value={values.body}
 						error={error ? true : false}
 					/>
-					<Button type="submit" color="blue" style={{ textAlign: "center" }}>
+					<Button type="submit" color="blue" style={{ textAlign: 'center' }}>
 						Utwórz
 					</Button>
 				</Form.Field>
