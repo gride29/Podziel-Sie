@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import 'moment/locale/pl';
 import { AuthContext } from '../context/auth';
 import LikeButton from './LikeButton';
+import DeleteButton from './DeleteButton';
 
 moment.locale('pl');
 
@@ -37,17 +38,7 @@ function PostCard({
 						{commentCount}
 					</Label>
 				</Button>
-				{user && user.username === username && (
-					<Button
-						as="div"
-						color="black"
-						basic
-						floated="right"
-						onClick={() => console.log('Delete post')}
-					>
-						<Icon name="trash" style={{ margin: 0 }} />
-					</Button>
-				)}
+				{user && user.username === username && <DeleteButton postId={id} />}
 			</Card.Content>
 		</Card>
 	);

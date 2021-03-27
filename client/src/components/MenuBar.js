@@ -31,7 +31,6 @@ function MenuBar() {
 				as={Link}
 				to="/"
 			/>
-
 			<Menu.Menu position="right">
 				<Menu.Item
 					name="login"
