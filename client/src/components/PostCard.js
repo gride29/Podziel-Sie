@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Card, Icon, Label, Image, Button } from 'semantic-ui-react';
+import { Card, Icon, Label, Image, Button, Popup } from 'semantic-ui-react';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
 import 'moment/locale/pl';
@@ -20,7 +20,7 @@ function PostCard({
 				<Image
 					floated="right"
 					size="mini"
-					src="https://react.semantic-ui.com/images/avatar/large/molly.png"
+					src="https://semantic-ui.com/images/avatar2/small/matthew.png"
 				/>
 				<Card.Header>{username}</Card.Header>
 				<Card.Meta as={Link} to={`/posts/${id}`}>
@@ -30,14 +30,20 @@ function PostCard({
 			</Card.Content>
 			<Card.Content extra>
 				<LikeButton user={user} post={{ id, likes, likeCount }} />
-				<Button labelPosition="right" as={Link} to={`/posts/${id}`}>
-					<Button color="blue" basic>
-						<Icon name="comment" />
-					</Button>
-					<Label as="a" basic color="blue" pointing="left">
-						{commentCount}
-					</Label>
-				</Button>
+				<Popup
+					content={user ? 'Skomentuj wpis' : 'Zaloguj się aby skomentować wpis'}
+					inverted
+					trigger={
+						<Button labelPosition="right" as={Link} to={`/posts/${id}`}>
+							<Button color="blue" basic>
+								<Icon name="comment" />
+							</Button>
+							<Label as="a" basic color="blue" pointing="left">
+								{commentCount}
+							</Label>
+						</Button>
+					}
+				/>
 				{user && user.username === username && <DeleteButton postId={id} />}
 			</Card.Content>
 		</Card>

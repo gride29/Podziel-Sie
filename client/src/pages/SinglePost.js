@@ -6,7 +6,7 @@ import moment from 'moment';
 import 'moment/locale/pl';
 import { AuthContext } from '../context/auth';
 import LikeButton from '../components/LikeButton';
-import { Button, Icon, Image, Label, Form } from 'semantic-ui-react';
+import { Button, Icon, Image, Label, Form, Popup } from 'semantic-ui-react';
 import DeleteButton from '../components/DeleteButton';
 
 moment.locale('pl');
@@ -59,7 +59,7 @@ function SinglePost(props) {
 				<Grid.Row>
 					<Grid.Column width={2}>
 						<Image
-							src="https://react.semantic-ui.com/images/avatar/large/molly.png"
+							src="https://semantic-ui.com/images/avatar2/small/matthew.png"
 							size="small"
 							float="right"
 						/>
@@ -74,18 +74,20 @@ function SinglePost(props) {
 							<hr />
 							<Card.Content extra>
 								<LikeButton user={user} post={{ id, likeCount, likes }} />
-								<Button
-									as="div"
-									labelPosition="right"
-									onClick={() => console.log('Skomentuj post.')}
-								>
-									<Button basic color="blue">
-										<Icon name="comments" />
-									</Button>
-									<Label basic color="blue" pointing="left">
-										{commentCount}
-									</Label>
-								</Button>
+								<Popup
+									content="Liczba komentarzy"
+									inverted
+									trigger={
+										<Button as="div" labelPosition="right">
+											<Button basic color="blue">
+												<Icon name="comments" />
+											</Button>
+											<Label basic color="blue" pointing="left">
+												{commentCount}
+											</Label>
+										</Button>
+									}
+								/>
 								{user && user.username === username && (
 									<DeleteButton postId={id} callback={deletePostCallback} />
 								)}
