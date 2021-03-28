@@ -1,6 +1,6 @@
 # PodzielSie
 
-Social media app with simple features such as adding posts, deleting posts, adding comments and deleting comments.
+Social media app with simple features such as adding posts, liking posts, deleting posts, adding comments and deleting comments.
 
 # Demo
 
