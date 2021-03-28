@@ -4,7 +4,7 @@ Attempt on creating a social media app with simple features using MERNG stack.
 
 # Demo
 
-![](/demo/demo1.JPG)
+![](/demo/demo1.jpg)
 ![](/demo/demo2.JPG)
 ![](/demo/demo3.JPG)
 ![](/demo/demo4.JPG)
