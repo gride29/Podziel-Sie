@@ -1,6 +1,6 @@
 # PodzielSie
 
-Attempt on creating a social media app with simple features using MERNG stack.
+Social media app with simple features such as adding post, deleting post, adding comments and deleting comments.
 
 # Demo
 
