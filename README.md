@@ -1,14 +1,11 @@
 # PodzielSie
 
-Social media app with simple features such as adding posts, liking posts, deleting posts, adding comments and deleting comments.
+Attempt on creating a social media app with simple features using MERNG stack.
 
-# Demo
+# Live demo
 
-![](/demo/demo1.jpg)
-![](/demo/demo2.JPG)
-![](/demo/demo3.JPG)
-![](/demo/demo4.JPG)
-![](/demo/demo5.JPG)
+### https://podzielsie.netlify.app/
+
 
 # Tech Stack
 
